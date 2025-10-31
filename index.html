@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EducaJovem - Apresentação Executiva</title>
+    <!-- Carregamento do Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuração do Tailwind para fontes e cores -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#1e3a8a', // Darker Blue for professional look
+                        'secondary-green': '#34d399', // Bright Green for Tech/Agro
+                        'text-dark': '#1f2937',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para a apresentação */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0f2f1 0%, #ffffff 100%);
+            height: 100vh;
+        }
+        .slide-container {
+            display: none;
+            height: 100%;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .slide-container.active {
+            display: flex;
+            opacity: 1;
+        }
+        .slide-card {
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+        .progress-bar {
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: #1e3a8a;
+            transition: width 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="flex flex-col">
+
+    <!-- Barra de Progresso e Navegação -->
+    <div class="w-full bg-white p-4 shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-extrabold text-primary-blue">EducaJovem | Pitch Executivo</h1>
+            <div id="progress-container" class="w-1/3 max-w-sm progress-bar hidden sm:block">
+                <div id="progress-fill" class="progress-fill" style="width: 0%;"></div>
+            </div>
+            <div class="flex space-x-2">
+                <button id="prev-btn" class="bg-gray-200 text-text-dark font-semibold py-2 px-4 rounded-full transition duration-300 hover:bg-primary-blue hover:text-white disabled:opacity-50 disabled:cursor-not-allowed">
+                    Anterior
+                </button>
+                <button id="next-btn" class="bg-primary-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300 hover:bg-secondary-green hover:shadow-lg">
+                    Próximo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container Principal dos Slides -->
+    <main id="presentation-container" class="flex-grow flex justify-center items-center">
+
+        <!-- Slide 1: Título e Visão -->
+        <div class="slide-container active" data-slide="1">
+            <div class="slide-card p-10 md:p-16 rounded-3xl max-w-4xl mx-auto text-center">
+                <p class="text-secondary-green text-3xl font-bold mb-4">CAPACITAÇÃO DE TALENTOS | INOVAÇÃO SOCIAL</p>
+                <h2 class="text-5xl md:text-6xl font-extrabold text-primary-blue leading-tight mb-6">
+                    EducaJovem
+                </h2>
+                <h3 class="text-2xl text-text-dark font-light italic mb-8">
+                    Conectando Educação, Tecnologia e Agricultura ao Futuro do Brasil.
+                </h3>
+                <p class="text-lg text-gray-600">
+                    Uma plataforma de impacto que resolve o descompasso entre o ensino técnico e as demandas reais dos mercados de alta expansão.
+                </p>
+                <div class="mt-8 text-sm text-gray-400">
+                    <span class="inline-block px-3 py-1 bg-gray-100 rounded-full">#AgroTech</span>
+                    <span class="inline-block px-3 py-1 bg-gray-100 rounded-full">#EmpregabilidadeJovem</span>
+                    <span class="inline-block px-3 py-1 bg-gray-100 rounded-full">#Sustentabilidade</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: O Problema -->
+        <div class="slide-container" data-slide="2">
+            <div class="slide-card p-8 md:p-12 rounded-3xl max-w-4xl mx-auto">
+                <span class="text-4xl">🎯</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-text-dark mb-6 mt-2">
+                    A Lacuna de Capacitação no Brasil
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-primary-blue mb-3">1. Deficiência Estrutural Escolar</h4>
+                        <ul class="space-y-3 text-gray-700 list-disc list-inside ml-4">
+                            <li>Maioria das escolas públicas carece de estrutura e equipamentos para cursos técnicos.</li>
+                            <li>Falta de professores especializados em áreas como Tecnologia e Agropecuária moderna.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-primary-blue mb-3">2. Descompasso do Mercado</h4>
+                        <ul class="space-y-3 text-gray-700 list-disc list-inside ml-4">
+                            <li>Empresas demandam jovens com habilidades práticas e experiência real.</li>
+                            <li>Alunos de alto potencial não têm acesso a certificações de valor.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-lg italic text-red-600 mt-8 font-medium">
+                    O resultado é uma mão de obra desqualificada e a perda de talentos para a economia digital e o Agro 4.0.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 3: A Solução -->
+        <div class="slide-container" data-slide="3">
+            <div class="slide-card p-8 md:p-12 rounded-3xl max-w-4xl mx-auto">
+                <span class="text-4xl">💡</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-secondary-green mb-6 mt-2">
+                    EducaJovem: A Ponte Digital para o Emprego
+                </h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    Somos uma plataforma independente (Web/App) que cria um ecossistema de talentos, focada em resolver o problema de ponta a ponta.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="p-4 border border-primary-blue rounded-xl bg-primary-blue/5">
+                        <span class="text-3xl text-primary-blue font-bold block mb-2">Empresas</span>
+                        <p class="text-sm text-gray-600">Encontram talentos locais pré-qualificados.</p>
+                    </div>
+                    <div class="p-4 border border-primary-blue rounded-xl bg-primary-blue/5">
+                        <span class="text-3xl text-primary-blue font-bold block mb-2">Escolas</span>
+                        <p class="text-sm text-gray-600">Incentivam a empregabilidade sem custos de estrutura técnica.</p>
+                    </div>
+                    <div class="p-4 border border-primary-blue rounded-xl bg-primary-blue/5">
+                        <span class="text-3xl text-primary-blue font-bold block mb-2">Alunos</span>
+                        <p class="text-sm text-gray-600">Acessam capacitação e oportunidades reais de trabalho.</p>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <h4 class="text-xl font-semibold text-text-dark">Capacitação Direcionada:</h4>
+                    <p class="text-gray-700 mt-2">
+                        Cursos curtos (20-40h) em parceria com líderes educacionais (SENAI, Alura, etc.), focados em habilidades específicas requisitadas pelas empresas (ex: Automação Agrícola, Programação Básica).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: O Funcionamento do Ecossistema (Passo a Passo) -->
+        <div class="slide-container" data-slide="4">
+            <div class="slide-card p-8 md:p-12 rounded-3xl max-w-5xl mx-auto">
+                <span class="text-4xl">🔄</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-text-dark mb-8 mt-2">
+                    Ecosistema de Valor: Como Geramos a Conexão
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-6 text-sm text-center">
+                    <!-- Coluna 1: Empresas -->
+                    <div class="p-4 bg-gray-50 rounded-xl shadow-md border-t-4 border-primary-blue">
+                        <h4 class="font-bold text-lg mb-2 text-primary-blue">1. Solicitação da Empresa</h4>
+                        <p class="text-gray-700">Empresas (Tech/Agro) registram na plataforma o **perfil de talento** desejado (ex: habilidades técnicas, tipo de vaga).</p>
+                    </div>
+                    <!-- Coluna 2: EducaJovem e Escola -->
+                    <div class="p-4 bg-gray-50 rounded-xl shadow-md border-t-4 border-secondary-green">
+                        <h4 class="font-bold text-lg mb-2 text-secondary-green">2. Capacitação do Aluno</h4>
+                        <p class="text-gray-700">EducaJovem aciona escolas para indicar jovens e oferece cursos EAD parceiros e mentorias, **eliminando a necessidade de estrutura da escola**.</p>
+                    </div>
+                    <!-- Coluna 3: Sustentabilidade -->
+                    <div class="p-4 bg-gray-50 rounded-xl shadow-md border-t-4 border-primary-blue">
+                        <h4 class="font-bold text-lg mb-2 text-primary-blue">3. Contratação e Sustentação</h4>
+                        <p class="text-gray-700">Aluno paga valor simbólico pelo curso (R$ 49–99). Empresa paga taxa de intermediação (R$ 150–300) **após a contratação**.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-lg">
+                    <p class="font-semibold text-text-dark">Modelo Social e Acessível:</p>
+                    <p class="text-sm text-gray-700">Escolas públicas participam **gratuitamente**. O custo simbólico para o aluno garante a sustentabilidade e é revertido em bolsas para baixa renda.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Modelo de Negócio e Sustentabilidade -->
+        <div class="slide-container" data-slide="5">
+            <div class="slide-card p-8 md:p-12 rounded-3xl max-w-5xl mx-auto">
+                <span class="text-4xl">💸</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-text-dark mb-6 mt-2">
+                    Modelo de Negócio: Freemium e Independente
+                </h2>
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-primary-blue">
+                            <tr>
+                                <th class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider rounded-tl-xl">Fonte de Receita</th>
+                                <th class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Quem Paga</th>
+                                <th class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Valor Estimado</th>
+                                <th class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider rounded-tr-xl">Observação</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200 text-gray-800">
+                            <tr>
+                                <td class="px-3 py-3 whitespace-nowrap font-medium">Taxa de Contratação</td>
+                                <td class="px-3 py-3 whitespace-nowrap">Empresa</td>
+                                <td class="px-3 py-3 whitespace-nowrap">R$ 150–300</td>
+                                <td class="px-3 py-3">Principal fonte, pós-seleção do aluno.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3 whitespace-nowrap font-medium">Cursos Preparatórios</td>
+                                <td class="px-3 py-3 whitespace-nowrap">Aluno</td>
+                                <td class="px-3 py-3 whitespace-nowrap">R$ 49–99</td>
+                                <td class="px-3 py-3">Garante acessibilidade e certificação.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3 whitespace-nowrap font-medium">Planos Premium Escolas</td>
+                                <td class="px-3 py-3 whitespace-nowrap">Escolas Privadas</td>
+                                <td class="px-3 py-3 whitespace-nowrap">R$ 99–199 (Mensal)</td>
+                                <td class="px-3 py-3">Relatórios e parcerias exclusivas.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-8 text-center bg-secondary-green/10 p-4 rounded-xl border border-secondary-green">
+                    <p class="text-lg font-bold text-secondary-green">Vantagem Estratégica</p>
+                    <p class="text-sm text-gray-700">Sustentabilidade garantida por um modelo freemium, independente de flutuações ou recursos governamentais.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Projeção de Crescimento e Financeira -->
+        <div class="slide-container" data-slide="6">
+            <div class="slide-card p-8 md:p-12 rounded-3xl max-w-4xl mx-auto">
+                <span class="text-4xl">💰🚀</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-text-dark mb-6 mt-2">
+                    Sustentabilidade Financeira e Escala
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Projeção Mensal -->
+                    <div class="bg-primary-blue text-white p-6 rounded-xl">
+                        <h4 class="text-xl font-bold mb-3">Cenário Inicial (Mensal)</h4>
+                        <div class="flex justify-between mb-1">
+                            <span>Receita Estimada:</span>
+                            <span class="font-semibold">R$ 3.569</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/30 pb-2">
+                            <span>Custos Operacionais:</span>
+                            <span class="font-semibold">R$ 3.000</span>
+                        </div>
+                        <div class="flex justify-between pt-2">
+                            <span class="font-bold text-lg">Margem de Lucro:</span>
+                            <span class="font-extrabold text-lg text-secondary-green">~40%</span>
+                        </div>
+                    </div>
+
+                    <!-- Projeção de Crescimento -->
+                    <div class="bg-gray-100 p-6 rounded-xl border border-gray-300">
+                        <h4 class="text-xl font-bold text-primary-blue mb-3">Projeção Ano 2 (Escala)</h4>
+                        <ul class="space-y-3 text-gray-700 list-disc list-inside ml-4">
+                            <li>Expansão para 3 novas regiões.</li>
+                            <li>Aumento de 150% na base de usuários ativos.</li>
+                            <li>Meta de **R$ 200.000** de Faturamento Anual.</li>
+                            <li>Impacto em **5.000** alunos.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <p class="text-xl font-bold text-text-dark">Fases Chave:</p>
+                    <p class="text-lg text-gray-600 mt-2">
+                        Protótipo (3 meses) → Expansão com IA e EAD (6 meses) → Escala Nacional (12 meses).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Impacto e Parcerias -->
+        <div class="slide-container" data-slide="7">
+            <div class="slide-card p-8 md:p-12 rounded-3xl max-w-4xl mx-auto">
+                <span class="text-4xl">🌍🤝</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-text-dark mb-6 mt-2">
+                    Impacto e Alianças Estratégicas
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="p-4 bg-secondary-green/10 rounded-xl border-b-4 border-secondary-green">
+                        <span class="text-2xl font-bold text-secondary-green block mb-1">Social</span>
+                        <p class="text-sm text-gray-700">Acesso à empregabilidade e inclusão para jovens de escolas públicas.</p>
+                    </div>
+                    <div class="p-4 bg-secondary-green/10 rounded-xl border-b-4 border-secondary-green">
+                        <span class="text-2xl font-bold text-secondary-green block mb-1">Educacional</span>
+                        <p class="text-sm text-gray-700">Inovação e atualização curricular nas escolas parceiras, sem custo.</p>
+                    </div>
+                    <div class="p-4 bg-secondary-green/10 rounded-xl border-b-4 border-secondary-green">
+                        <span class="text-2xl font-bold text-secondary-green block mb-1">Econômico</span>
+                        <p class="text-sm text-gray-700">Redução do desemprego jovem e fortalecimento da economia local.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <h4 class="text-xl font-semibold text-primary-blue mb-4">Parcerias-Chave Confirmadas (Privadas)</h4>
+                    <div class="flex flex-wrap justify-center space-x-4 text-gray-600">
+                        <span class="p-2 border rounded-full">SENAI</span>
+                        <span class="p-2 border rounded-full">SENAR</span>
+                        <span class="p-2 border rounded-full">Alura</span>
+                        <span class="p-2 border rounded-full">Sebrae</span>
+                        <span class="p-2 border rounded-full">Coursera</span>
+                        <span class="p-2 border rounded-full">Empresas AgroTech & Startups</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Fechamento e Chamada -->
+        <div class="slide-container" data-slide="8">
+            <div class="slide-card p-10 md:p-16 rounded-3xl max-w-4xl mx-auto text-center">
+                <p class="text-secondary-green text-3xl font-bold mb-4">NOSSA MISSÃO</p>
+                <h2 class="text-5xl md:text-6xl font-extrabold text-primary-blue leading-tight mb-8">
+                    Educação que conecta você ao futuro.
+                </h2>
+                <div class="text-2xl text-text-dark font-light italic mb-8 border-t border-b py-4">
+                    "EducaJovem – Capacita o aluno, conecta o talento, transforma o futuro."
+                </div>
+                <p class="text-lg text-gray-700 font-medium">
+                    Estamos prontos para escalar. Nosso modelo é socialmente responsável, financeiramente robusto e atende a uma demanda urgente do mercado. O próximo passo é levar o EducaJovem a nível nacional, solidificando nossa posição como a principal ponte entre o ensino técnico e a empregabilidade no Brasil.
+                </p>
+                <p class="text-3xl font-extrabold text-primary-blue mt-8">
+                    Vamos construir este futuro juntos.
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const slides = document.querySelectorAll('.slide-container');
+        const totalSlides = slides.length;
+        let currentSlide = 1;
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBarFill = document.getElementById('progress-fill');
+
+        function updateSlide(newSlide) {
+            // Garante que o slide está dentro dos limites
+            if (newSlide < 1 || newSlide > totalSlides) {
+                return;
+            }
+
+            // Desativa o slide atual
+            const activeSlide = document.querySelector('.slide-container.active');
+            if (activeSlide) {
+                activeSlide.classList.remove('active');
+            }
+
+            // Ativa o novo slide
+            const targetSlide = document.querySelector(`[data-slide="${newSlide}"]`);
+            if (targetSlide) {
+                targetSlide.classList.add('active');
+                currentSlide = newSlide;
+            }
+
+            // Atualiza botões
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === totalSlides;
+            nextBtn.textContent = currentSlide === totalSlides ? 'Fim' : 'Próximo';
+
+            // Atualiza barra de progresso
+            const progress = (currentSlide / totalSlides) * 100;
+            progressBarFill.style.width = `${progress}%`;
+        }
+
+        // Navegação por cliques no botão
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides) {
+                updateSlide(currentSlide + 1);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 1) {
+                updateSlide(currentSlide - 1);
+            }
+        });
+
+        // Navegação por teclado (setas)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentSlide < totalSlides) {
+                updateSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowLeft' && currentSlide > 1) {
+                updateSlide(currentSlide - 1);
+            }
+        });
+
+        // Inicializa a apresentação no primeiro slide
+        document.addEventListener('DOMContentLoaded', () => {
+            updateSlide(1);
+        });
+
+    </script>
+</body>
+</html>
